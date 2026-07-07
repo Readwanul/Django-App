@@ -1,0 +1,30 @@
+{% extends "ServerApp/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Django Template Example</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% include "ServerApp/navbar.html" %}
+    <h1>Student List</h1>
+    {% if students %}
+        <ul>
+            {% for student in students %}
+                <li>
+                    {{ forloop.counter }}. {{ student }}
+                </li>
+            {% empty %}
+                <li>No students found.</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No data available.</p>
+    {% endif %}
+</body> </html>
+
+{% endblock %}
