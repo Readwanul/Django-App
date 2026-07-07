@@ -1,0 +1,40 @@
+/* H3 Tag Styling */
+h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin: 20px 0 10px 0;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Paragraph Tag Styling */
+p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  margin: 15px 0;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Unordered List Styling */
+ul {
+  list-style-type: disc;
+  margin: 20px 0;
+  padding-left: 40px;
+}
+
+/* List Item Styling */
+li {
+  font-size: 16px;
+  color: #555;
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+/* Additional List Item Hover Effect */
+li:hover {
+  color: #007bff;
+  cursor: pointer;
+}
