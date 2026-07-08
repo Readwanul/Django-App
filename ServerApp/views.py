@@ -3,7 +3,7 @@ from django.shortcuts import render
 def page2(request):
     Items=["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
     Name="John Doe"
-    return render(request, 'ServerApp/page2.html', {'items': Items, 'name': Name})
+    return render(request, 'ServerApp/Page2.html', {'items': Items, 'name': Name})
 
 def page3(request):
     return render(request, 'ServerApp/page3.html')
