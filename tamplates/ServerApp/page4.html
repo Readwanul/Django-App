@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% extends 'ServerApp/base.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Student List{% endblock %}</title>
+</head>
+<body>
+    {% block content %}
+    <input type="text" id="searchBox" placeholder="Search...">
+    {% for student in students %}
+        <form method="POST" action="{% url 'delete_student' student.id %}">
+            <div class="student">
+                {% csrf_token %}
+            {{ student.id }} -
+            {{ student.name }} -
+            {{ student.address }} -
+            {{ student.created_at|date:"F j, Y" }}
+            <button type="submit">Delete</button>
+            </div>
+            
+        </form>
+
+        <hr>
+    {% endfor %}
+    <script>
+            document.getElementById("searchBox").addEventListener("keyup", function () {
+            let value = this.value.toLowerCase();
+            let students = document.querySelectorAll(".student");
+
+            students.forEach(function(student) {
+                if (student.textContent.toLowerCase().includes(value)) {
+                student.style.display = "";
+            } else {
+                student.style.display = "none";
+            }
+          });
+        });
+    </script>
+    
+    <form method="POST" action="{% url 'add_student' %}">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="address" placeholder="Address" required>
+        <button type="submit">Add Student</button>
+    </form>
+    
+    {% endblock %}
+</body>
+</html>
